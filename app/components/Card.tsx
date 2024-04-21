@@ -1,5 +1,7 @@
+"use client"
 import React from 'react'
 import { Button } from "@/components/ui/button"
+
 const Card = () => {
     
     const posts = [
@@ -41,6 +43,9 @@ const Card = () => {
         },
         
     ]
+   
+ 
+   
   return (
     <section className="mt-12 mx-auto px-4 max-w-screen-xl md:px-8 relative">
             <div className="text-center">
