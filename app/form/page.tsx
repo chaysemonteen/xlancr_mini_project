@@ -18,7 +18,7 @@ const Blogform = () => {
     content: '',
   });
   const router = useRouter();
-
+ 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

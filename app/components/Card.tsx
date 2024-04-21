@@ -1,9 +1,15 @@
-"use client"
 import React from 'react'
 import { Button } from "@/components/ui/button"
+import { PrismaClient } from '@prisma/client';
+import { db } from '@/lib/db';
+const prisma = new PrismaClient();
 
-const Card = () => {
+
+const Card = async () => {
     
+
+    
+    const servers = await db.blog.findMany();
     const posts = [
         {
             title: "What is SaaS? Software as a Service Explained",
@@ -71,6 +77,18 @@ const Card = () => {
                                 <p className="text-gray-400 text-sm mt-1">{items.desc}</p>
                             </div>
                         </a>
+                    </article>
+                ))}
+                {servers.map((items, key) => (
+                    <article className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm" key={key}>
+                        
+                            <img src={"https://images.unsplash.com/photo-1617529497471-9218633199c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"} loading="lazy" alt={items.title} className="w-full h-48 rounded-t-md" />
+                            
+                            <div className="pt-3 ml-4 mr-2 mb-3">
+                                <h3 className="text-xl text-gray-900">{items.title}</h3>
+                                <p className="text-gray-400 text-sm mt-1">{items.content}</p>
+                            </div>
+                        
                     </article>
                 ))}
             </div>
